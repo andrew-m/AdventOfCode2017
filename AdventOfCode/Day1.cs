@@ -18,13 +18,36 @@ namespace AdventOfCode
                     {
                         runningTotal += digitList[i];
                     }
-                    }
+                }
                 else
                 {
                     if (digitList[i] == digitList[i + 1])
                     {
                         runningTotal += digitList[i];
                     }
+                }
+            }
+            return runningTotal;
+        }
+
+        private static int HalfwayOffsetIndex(int index, List<int> digitList)
+        {
+            var size = digitList.Count;
+            var rawoffset = index + (size / 2);
+            var newIndex = rawoffset >= size ? rawoffset - size : rawoffset;
+            return newIndex;
+        }
+
+        public static int notHumanHalfwayRound(string input)
+        {
+            var digitList = parseInputToList(input);
+            int runningTotal = 0;
+
+            for (int i = 0; i < digitList.Count; i++)
+            {
+                if (digitList[i] == digitList[HalfwayOffsetIndex(i, digitList)])
+                {
+                    runningTotal += digitList[i];
                 }
             }
             return runningTotal;
