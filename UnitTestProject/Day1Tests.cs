@@ -1,18 +1,10 @@
-using System;
-using System.Globalization;
 using AdventOfCode;
 using Xunit;
 
 namespace AdventOfCodeTests
 {
-    public class UnitTest1
+    public class Day1Tests
     {
-        [Fact]
-        public void Test1()
-        {
-            Assert.True(true);
-        }
-        
         [Fact]
         public void SumsAllDigitsIfTheSame()
         {
@@ -52,6 +44,5 @@ namespace AdventOfCodeTests
             
             Assert.Equal(1182, result);
         }
-        
     }
 }

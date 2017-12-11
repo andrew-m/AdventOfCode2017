@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdventOfCode
 {
@@ -6,31 +7,42 @@ namespace AdventOfCode
     {
         public static int notHuman(string inputCharString)
         {
-            int prevDigit = getLastDigit(inputCharString);
-            
-            int currentDigit = 0;
-            int total = 0;
-            foreach (char c in inputCharString)
-            {
-                
-                
-                currentDigit = int.Parse(c.ToString());
-                
-                if (prevDigit == currentDigit)
-                {
-                    total += prevDigit;
-                }
-                prevDigit = currentDigit;
-            }
+            var digitList = parseInputToList(inputCharString);
+            int runningTotal = 0;
 
-            return total;
+            for (int i = 0; i < digitList.Count; i++)
+            {
+                if (IsIndexOfLastDigit(i, digitList))
+                {
+                    if (digitList[i] == digitList[0])
+                    {
+                        runningTotal += digitList[i];
+                    }
+                    }
+                else
+                {
+                    if (digitList[i] == digitList[i + 1])
+                    {
+                        runningTotal += digitList[i];
+                    }
+                }
+            }
+            return runningTotal;
         }
 
-        private static int getLastDigit(string input)
+        private static bool IsIndexOfLastDigit(int i, List<int> digitList)
         {
-            var lastCharacter = input.Substring(input.Length -1, 1);
+            return i == digitList.Count - 1;
+        }
 
-            return int.Parse(lastCharacter);
+        private static List<int> parseInputToList(String input)
+        {
+            var parsedList = new List<int>();
+            foreach (char digitChar in input)
+            {
+                parsedList.Add(int.Parse(digitChar.ToString()));
+            }
+            return parsedList;
         }
     }
 }
