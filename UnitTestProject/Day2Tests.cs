@@ -54,7 +54,7 @@ namespace AdventOfCodeTests
 166	136	80	185	135	78	177	123	82	150	121	145	115	63	68	24
 214	221	265	766	959	1038	226	1188	1122	117	458	1105	1285	1017	274	281";
             var checksum = Day2.calculateCheksum(input);
-            Assert.Equal(18, checksum);
+            Assert.Equal(36174, checksum);
         }
     }
 }    
