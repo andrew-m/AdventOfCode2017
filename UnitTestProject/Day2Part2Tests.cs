@@ -58,6 +58,15 @@ namespace AdventOfCodeTests
         }
         
         [Fact]
+        public void ShouldFindPairsThatDivideEvenlyAndReturnResult_forMultiDigitIntegers()
+        {
+            List<int> inputLineDigits = new List<int>{30, 80, 60, 50};
+            int result = Day2.FindPairThatDividesEvenlyAndReturnResult(inputLineDigits);
+            
+            Assert.Equal(2, result);
+        }
+        
+        [Fact]
         public void GivenTestInput()
         {
             String input = @"5	9	2	8
@@ -91,7 +100,7 @@ namespace AdventOfCodeTests
 
             int checksum = Day2.calculateCheksumUsingOnlyEvenlyDivisibleDigits(input);
             
-            Assert.Equal(24, checksum);
+            Assert.Equal(244, checksum);
         }
     }
 }
