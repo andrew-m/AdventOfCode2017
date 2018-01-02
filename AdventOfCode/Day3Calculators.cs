@@ -8,7 +8,7 @@ namespace AdventOfCode
     {
         
         public static int GetLayer(int inputNumber)
-        {
+            {
             if (inputNumber <= 1)
             {
                 return 0;
@@ -36,14 +36,14 @@ namespace AdventOfCode
             return (((int)(Math.Pow(layerIndex, 2)) + layerIndex) / 2 * 8) + 1;
         }
 
-        public static int SizeOfLayer(int LayerIndex)
+        public static int SizeOfLayer(int layerIndex)
         {
-            if (LayerIndex == 0)
+            if (layerIndex == 0)
             {
                 return 1;
             }
             
-            return LayerIndex * 8;
+            return layerIndex * 8;
         }
 
         public static IEnumerable<int> Range(int start, int endInclusive)
